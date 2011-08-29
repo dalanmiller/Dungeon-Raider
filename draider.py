@@ -9,7 +9,8 @@ Please follow the prompts and enjoy the game!
 """
 
 print(welcome_msg)
-print("Please select your character name
+
+print("Please select your character name")
 
 #Check if this name already exists and then prompt for another name
 
@@ -19,6 +20,16 @@ print("\nWelcome "+char['Name']+", what would you like to do?")
 
 display_menu()
 
+print("Please select your character name")
+char['Name'] = raw_input ("What is your name?: ")
+print("\nWelcome "+char['Name']+", what would you like to do?")
+print("""\n 
+1) Find something to fight!
+2) Heal
+3) Save & Quit
+""")
+
+option = raw_input("\nPlease select an option:  ")
 
 if option == 1: 
 	fight() 
@@ -29,6 +40,7 @@ elif option == 3:
 	quit()
 else: 
 	print("\nPlease enter a valid selection")
+
 	displayMenu() 
 
 def fight():
@@ -55,4 +67,7 @@ def display_menu ():
 	"""
         print(menu_ops)
 	option = raw_input("\nPlease select an option:  ")
+
+
+
 
