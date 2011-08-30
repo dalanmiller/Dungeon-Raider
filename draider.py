@@ -1,6 +1,8 @@
 #! /usr/lib/python2.6
 
-import sys  
+import sys, random, csv, os
+
+# GAME FUNCTIONS ==============
 
 def welcome ():
         welcome_msg = """
@@ -12,21 +14,36 @@ Please follow the prompts and enjoy the game!
 """
         print(welcome_msg)
 
+#def init():
+        #Create csv file if it doesn't exist. 
+        #Load items, monsters, characters into memory?
+        
+        #Pull monsters, weapons, items from public file?
+
 def fight():
-	monster = randomMob()
-	print("A fight has begun!") 
+        monster = randomMob()
+	print("A fight has begun")
+
+        #Pick randomsly from set of monsters
+        
+        #User gets to engage per round or have random chance at retreating.
 
 def randomMob():
+        
+        #
 	return monster
 
 def heal(char):
 	print("Your health is currently "+char['Health']+" HP")
 
-        math.random
+        boost = random.randint(0,100)
 
-        print("The health fairy has granted you 
+        print("The health fairy has granted you "+boost+" HP")
         
+        char['Health'] += boost 
 
+        print("Your HP Is now "+char['Health']+" HP")
+        
 def save() :	
         #Check if name already exists        
 	print("Your character has been saved")
@@ -44,7 +61,8 @@ def display_menu (char):
 
 def char_selection(char):
         print("Please select your character name")        
-#Check if this name already exists and then prompt for another name      
+        
+        #Check if this name already exists and then prompt for another name      
 
         char['Name'] = raw_input ("What is your name?: ")
 
@@ -54,25 +72,29 @@ def char_selection(char):
 
 welcome()
 
-char = {}
+char = {'Name':"", 'Health':"" }
 
 char_selection(char)
 
-option = display_menu(char)
+while char['Health'] > 0 : 
 
-if option == 1: 
-	fight() 
-        display_menu()
-elif option == 2: 
-	heal()
-        display_menu()
-elif option == 3:
-	saveChar()
-	quit()
-else: 
-	print("\nPlease enter a valid selection")
+        option = display_menu(char)
+        if option == 1: 
+	        fight() 
+                display_menu()
+        elif option == 2: 
+	        heal()
+                display_menu()
+        elif option == 3:
+	        saveChar()
+	        quit()
+        else:  
+	        print("\nPlease enter a valid selection")
 
-	display_menu(char) 
+	        display_menu(char) 
+
+#Exits while loop - you die! 
+print("You have died!") 
 
 
 
