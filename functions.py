@@ -1,7 +1,3 @@
-#! /usr/lib/python2.6
-
-import sys, random, csv, os
-
 # GAME FUNCTIONS ==============
 
 def welcome ():
@@ -30,17 +26,18 @@ def fight():
 
 def randomMob():
         
-        #
+        #Choose a random mob from a list of tuples that has the monster data.
+
 	return monster
 
 def heal(char):
 	print("Your health is currently "+char['Health']+" HP")
 
-        boost = random.randint(0,100)
+        boost = random.randint(0,100) #Assign random number between 0 - 100 to boost
 
         print("The health fairy has granted you "+boost+" HP")
         
-        char['Health'] += boost 
+        char['Health'] += boost #Adding boost to current total of the hash of the key for character 'Health'    
 
         print("Your HP Is now "+char['Health']+" HP")
         
@@ -62,39 +59,12 @@ def display_menu (char):
 def char_selection(char):
         print("Please select your character name")        
         
-        #Check if this name already exists and then prompt for another name      
+        #Check if this name already exists and then prompt for another name 
 
-        char['Name'] = raw_input ("What is your name?: ")
+        #Need to check if inputted text is only alphanumeric characters "".isalnum()     
+        #.istoken() might also be helpful instead as it checks for initial capitalized letters in tokens in a string
+
+        char['Name'] = raw_input("What is your name?: ").capitalize()
 
         return char
-
-#GAME STARTS =================================
-
-welcome()
-
-char = {'Name':"", 'Health':"" }
-
-char_selection(char)
-
-while char['Health'] > 0 : 
-
-        option = display_menu(char)
-        if option == 1: 
-	        fight() 
-                display_menu()
-        elif option == 2: 
-	        heal()
-                display_menu()
-        elif option == 3:
-	        saveChar()
-	        quit()
-        else: 
-	        print("\nPlease enter a valid selection")
-
-	        display_menu(char) 
-
-#Exits while loop - you die! 
-print("You have died!") 
-
-
 
