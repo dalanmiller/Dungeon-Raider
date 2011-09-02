@@ -1,8 +1,10 @@
 #! /usr/lib/python2.6
+"""An awesome game created by Daniel Miller while learning Python"""
 
-import sys
+
+import sys #For import, I believe
 from random import randint     
-#import csv 
+#import csv #maybe for character storage
 #import os 
 #import console #Not sure where this will fit in 
 
@@ -29,7 +31,8 @@ while char['Health'] > 0 :
         elif option == 3: 
                 saveChar() 
                 quit()
-        else:  print("\nPlease enter a valid selection") 
+        else:  
+                print("\nPlease enter a valid selection") 
                 display_menu(char) 
 
 #Exits while loop - you die! 

@@ -1,9 +1,4 @@
 A simple text-based RPG written in Python.
 
+Written by Daniel Miller while learning the amazing wonders of Python! 
 
-Future implementation
-v1 - Create character then engage in random battles until dead
-
-v2 - Add ability to heal and accumulate XP, save character at end of battle
-
-v3 - Add ability to reload character at beginning of session 
