@@ -1,19 +1,17 @@
+"""Functions for the game Dungeon Raider"""
 # GAME FUNCTIONS ==============
 
-def welcome ():
-        welcome_msg = """
-Welcome to Dungeon Raider!
+def welcome():
+        welcome_msg = """Welcome to Dungeon Raider!
 
-A game written by Daniel Miller as he learns the Python programming language.
+	A game written by Daniel Miller as he learns the Python programming language.
 
-Please follow the prompts and enjoy the game! 
-"""
+	Please follow the prompts and enjoy the game!"""
         print(welcome_msg)
 
 #def init():
         #Create csv file if it doesn't exist. 
         #Load items, monsters, characters into memory?
-        
         #Pull monsters, weapons, items from public file?
 
 def fight():

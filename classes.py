@@ -23,8 +23,6 @@ class Hero(Organism):
         """This class provides functions for heroes"""
         #def __init__()
                 
-        
-        
 
 class Monster(Organism):
         """This class provides functions for monsters"""

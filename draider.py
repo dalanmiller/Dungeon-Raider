@@ -1,23 +1,23 @@
-#! /usr/lib/python2.6
+#! /usr/lib/python2.7
 """An awesome game created by Daniel Miller while learning Python"""
 
 
-import sys #For import, I believe
+#import sys #For import, I believe
 from random import randint     
-#import csv #maybe for character storage
+#import csv #maybe for character storage, definitely for use in early versions
 #import os 
 #import console #Not sure where this will fit in 
 
-import classes
-import functions
+from classes import * #import game classes
+from functions import * #import game functions
 
 #GAME STARTS =================================
 
 welcome()
 
-char = {'Name':"", 'Health':"" } #Sets up blank new character 
+char = Hero()
 
-char_selection(char)
+char = char_selection(char)
 
 while char['Health'] > 0 : 
 
