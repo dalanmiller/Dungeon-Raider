@@ -16,7 +16,7 @@ from functions import * #import game functions
 
 welcome() #Welcome to the dungeon!
 
-char = Hero(char_selection()[0], 100 ) #Assign returns to char_vars list  
+char = Hero(char_selection(), 100 ) #Assign returns to char_vars list  
 
 while char.getHealth > 0 : 
 
