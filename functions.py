@@ -63,6 +63,7 @@ def char_selection(char):
         #.istoken() might also be helpful instead as it checks for initial capitalized letters in tokens in a string
 
         char['Name'] = raw_input("What is your name?: ").capitalize()
+        char['Health'] = 100
 
         return char
 

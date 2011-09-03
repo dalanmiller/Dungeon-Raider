@@ -1,5 +1,5 @@
 #! /usr/lib/python2.7
-"""An awesome game created by Daniel Miller while learning Python"""
+"""An awesome game created by Daniel Miller and Andreas Stassivik while learning Python"""
 
 
 #import sys #For import, I believe
@@ -13,11 +13,11 @@ from functions import * #import game functions
 
 #GAME STARTS =================================
 
-welcome()
+welcome() #Welcome to the dungeon!
 
-char = Hero()
+char_vars = char_selection(char) #Assign returns to char_vars list 
 
-char = char_selection(char)
+char = Hero(char_vars[0], char_vars[1]) #Finally create Hero with name from prompt and 100 HP into the first and second places. 
 
 while char['Health'] > 0 : 
 
