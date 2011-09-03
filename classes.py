@@ -22,13 +22,9 @@ class Organism:
 class Hero(Organism):
         """This class provides functions for heroes"""
         #def __init__()
-                
+        pass
 
 class Monster(Organism):
         """This class provides functions for monsters"""
         #def __init__()
-                
-
-       
-
-
+        pass

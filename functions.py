@@ -29,22 +29,22 @@ def randomMob():
 	return monster
 
 def heal(char):
-	print("Your health is currently "+char['Health']+" HP")
+	print("Your health is currently ",char.getHealth," HP")
 
         boost = random.randint(0,100) #Assign random number between 0 - 100 to boost
 
         print("The health fairy has granted you "+boost+" HP")
         
-        char['Health'] += boost #Adding boost to current total of the hash of the key for character 'Health'    
+        char.getHealth += boost #Adding boost to current total of the hash of the key for character 'Health'    
 
-        print("Your HP Is now "+char['Health']+" HP")
+        print("Your HP Is now ", char.getHealth," HP")
         
 def save() :	
         #Check if name already exists        
 	print("Your character has been saved")
 
 def display_menu (char):
-        print("\nWelcome "+char['Name']+", what would you like to do?")
+        print("\nWelcome "+ char.getName +", what would you like to do?")
 	menu_ops = """\n 
 	1) Find something to fight!
 	2) Heal
@@ -54,16 +54,15 @@ def display_menu (char):
 	option = raw_input("\nPlease select an option:  ")
         return option
 
-def char_selection(char):
+def char_selection():    
         print("Please select your character name")        
         
         #Check if this name already exists and then prompt for another name 
 
         #Need to check if inputted text is only alphanumeric characters "".isalnum()     
         #.istoken() might also be helpful instead as it checks for initial capitalized letters in tokens in a string
-
-        char['Name'] = raw_input("What is your name?: ").capitalize()
-        char['Health'] = 100
-
-        return char
+        name = raw_input("What is your name?: ").capitalize()        
+        
+        return [name, 100]
+        
 

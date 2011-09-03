@@ -8,26 +8,25 @@ from random import randint
 #import os 
 #import console #Not sure where this will fit in 
 
-from classes import * #import game classes
+from classes import *
+    
 from functions import * #import game functions
 
 #GAME STARTS =================================
 
 welcome() #Welcome to the dungeon!
+vars = char_selection()
+char = Hero(vars[0], vars[1] ) #Assign returns to char_vars list  
 
-char_vars = char_selection(char) #Assign returns to char_vars list 
-
-char = Hero(char_vars[0], char_vars[1]) #Finally create Hero with name from prompt and 100 HP into the first and second places. 
-
-while char['Health'] > 0 : 
+while char.getHealth > 0 : 
 
         option = display_menu(char)
         if option == 1:   
                 fight() 
-                display_menu()
+                display_menu(char)
         elif option == 2:  
                 heal() 
-                display_menu()
+                display_menu(char)
         elif option == 3: 
                 saveChar() 
                 quit()
