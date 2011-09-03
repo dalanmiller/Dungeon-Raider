@@ -15,24 +15,25 @@ from functions import * #import game functions
 #GAME STARTS =================================
 
 welcome() #Welcome to the dungeon!
-vars = char_selection()
-char = Hero(vars[0], vars[1] ) #Assign returns to char_vars list  
+
+char = Hero(char_selection()[0], 100 ) #Assign returns to char_vars list  
 
 while char.getHealth > 0 : 
 
         option = display_menu(char)
+
         if option == 1:   
-                fight() 
-                display_menu(char)
+                char = fight(char) 
+                option = display_menu(char)
         elif option == 2:  
-                heal() 
-                display_menu(char)
+                char = heal(char) 
+                option = display_menu(char)
         elif option == 3: 
-                saveChar() 
+                saveChar(char) 
                 quit()
         else:  
                 print("\nPlease enter a valid selection") 
-                display_menu(char) 
+                option = display_menu(char) 
 
 #Exits while loop - you die! 
 print("You have died!") 

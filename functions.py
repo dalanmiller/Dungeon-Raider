@@ -14,10 +14,18 @@ def welcome():
         #Load items, monsters, characters into memory?
         #Pull monsters, weapons, items from public file?
 
-def fight():
-        monster = randomMob()
+def fight(char):
+        #monster = randomMob()
 	print("A fight has begun")
 
+        print("But you got messed up by some monster!")
+
+        ouch = random.randint(0,100)
+        print("Your health is now ", char.getHealth - ouch)
+        
+        char.setHealth(char.getHealth - ouch)        
+
+        return char
         #Pick randomsly from set of monsters
         
         #User gets to engage per round or have random chance at retreating.
@@ -39,20 +47,19 @@ def heal(char):
 
         print("Your HP Is now ", char.getHealth," HP")
         
-def save() :	
+def save(char) :	
         #Check if name already exists        
 	print("Your character has been saved")
 
-def display_menu (char):
-        print("\nWelcome "+ char.getName +", what would you like to do?")
+def display_menu(char):
+        print("\nWelcome ", char.getName ,", what would you like to do?")
 	menu_ops = """\n 
 	1) Find something to fight!
 	2) Heal
 	3) Save & Quit
 	"""
         print(menu_ops)
-	option = raw_input("\nPlease select an option:  ")
-        return option
+	return raw_input("\nPlease select an option:  ")
 
 def char_selection():    
         print("Please select your character name")        
@@ -63,6 +70,6 @@ def char_selection():
         #.istoken() might also be helpful instead as it checks for initial capitalized letters in tokens in a string
         name = raw_input("What is your name?: ").capitalize()        
         
-        return [name, 100]
+        return name
         
 
