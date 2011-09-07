@@ -3,7 +3,7 @@
 
 
 #import sys #For import, I believe
-from random import randint     
+import random    
 #import csv #maybe for character storage, definitely for use in early versions
 #import os 
 #import console #Not sure where this will fit in 
@@ -18,22 +18,25 @@ welcome() #Welcome to the dungeon!
 
 char = Hero(char_selection(), 100 ) #Assign returns to char_vars list  
 
-while char.getHealth > 0 : 
+while char.getHealth() > 0 : 
 
-        option = display_menu(char)
+        option = int(display_menu(char))
 
         if option == 1:   
+                print 'It\'s time to fight!' 
                 char = fight(char) 
-                option = display_menu(char)
+
         elif option == 2:  
+                print 'It\'s time to heal!'
                 char = heal(char) 
-                option = display_menu(char)
+
         elif option == 3: 
+                print 'Saving!'
                 saveChar(char) 
                 quit()
         else:  
                 print("\nPlease enter a valid selection") 
-                option = display_menu(char) 
+                
 
 #Exits while loop - you die! 
 print("You have died!") 

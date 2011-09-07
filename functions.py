@@ -1,4 +1,6 @@
 """Functions for the game Dungeon Raider"""
+
+import random
 # GAME FUNCTIONS ==============
 
 def welcome():
@@ -21,9 +23,10 @@ def fight(char):
         print("But you got messed up by some monster!")
 
         ouch = random.randint(0,100)
-        print("Your health is now ", char.getHealth - ouch)
+        newHealth = char.getHealth() - ouch        
+        print("Your health is now"+`newHealth`)
         
-        char.setHealth(char.getHealth - ouch)        
+        char.setHealth(newHealth)        
 
         return char
         #Pick randomsly from set of monsters
@@ -37,7 +40,7 @@ def randomMob():
 	return monster
 
 def heal(char):
-	print("Your health is currently ",char.getHealth," HP")
+	print("Your health is currently ",char.getHealth()," HP")
 
         boost = random.randint(0,100) #Assign random number between 0 - 100 to boost
 
@@ -45,14 +48,14 @@ def heal(char):
         
         char.getHealth += boost #Adding boost to current total of the hash of the key for character 'Health'    
 
-        print("Your HP Is now ", char.getHealth," HP")
+        print("Your HP Is now ", char.getHealth()," HP")
         
 def save(char) :	
         #Check if name already exists        
 	print("Your character has been saved")
 
 def display_menu(char):
-        print("\nWelcome ", char.getName ,", what would you like to do?")
+        print("\nWelcome "+char.getName()+", what would you like to do?")
 	menu_ops = """\n 
 	1) Find something to fight!
 	2) Heal
