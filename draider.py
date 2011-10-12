@@ -4,7 +4,7 @@
 
 #import sys #For import, I believe
 import random    
-#import csv #maybe for character storage, definitely for use in early versions
+import csv
 #import os 
 #import console #Not sure where this will fit in 
 
@@ -19,9 +19,13 @@ welcome() #Welcome to the dungeon!
 char = Hero(char_selection(), 100 ) #Assign returns to char_vars list  
 
 while char.getHealth() > 0 : 
+        option = ''
+        
+        while(type(option) != int):
 
-        option = int(display_menu(char))
-
+                option = display_menu(char)
+                if option.isdigit(): option = int(option)
+        
         if option == 1:   
                 print 'It\'s time to fight!' 
                 char = fight(char) 
